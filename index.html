@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="app" >
+	<head>
+		<link rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css">
+	</head>
+	<body class="blue lighten-3" ng-controller="IndexController">
+		<nav>
+			<div class="nav-wrapper yellow darken-2"></div>
+		</nav>
+		<div class="row">
+				<div class="col s4 offset-s4">
+					<div class="card">
+						<div class="card-content" ng-hide=currentNote ng-click="createEmpty()" style="cursor: pointer;">
+								Add note
+						</div>--{{current.note}}
+						<div class="card-content" ng-if=currentNote>
+								<div class="input-field">
+										<input id="new-note-title" type="text" ng-model="currentNote.title" />
+										<label for="new-note-title">Note title</label>
+								</div>
+								<div class="input-field">
+										<textarea id="new-note-text" class="materialize-textarea" ng-model="currentNote.text"></textarea>
+										<label for="new-note-text">Note text</label>
+								</div>
+								<div class="card-action">
+										<a href="#" ng-click=saveCurrentNote(currentNote)>Done</a>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="row" >
+				<div class="col s5" ng-repeat = 'note in notes'>
+					<div class="card hoverable">
+						<div class="card-content">
+									<span class="card-title" ng-bind="note.title"></span>
+									<p ng-bind='note.text'></p>
+							</div>
+					</div>
+				</div>
+		</div>
+
+
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/Materialize/dist/js/materialize.min.js"></script>
+
+		<script src="app.js"></script>
+	</body>
+</html>
