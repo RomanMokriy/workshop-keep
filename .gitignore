@@ -1,5 +1,6 @@
 /node_modules/
 /bower_components/
-/nbproject/
+/vendor/
+/var/
 app.js
 templates.js
