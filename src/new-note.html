@@ -1,0 +1,18 @@
+<div class="card">
+	<div class="card-content" ng-hide=emptyNote ng-click=createNewNote() style="cursor: pointer;">
+			Add note
+	</div>
+	<div class="card-content" ng-if=emptyNote>
+			<div class="input-field">
+					<input id="new-note-title" type="text" ng-model="emptyNote.title" />
+					<label for="new-note-title">Note title</label>
+			</div>
+			<div class="input-field">
+					<textarea id="new-note-text" class="materialize-textarea" ng-model="emptyNote.text"></textarea>
+					<label for="new-note-text">Note text</label>
+			</div>
+			<div class="card-action">
+					<a href="#" ng-click=saveNewNote()>Done</a>
+			</div>
+	</div>
+</div>

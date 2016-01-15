@@ -1,6 +1,6 @@
 (function(){
 	angular.module('app')
-			.factory('NoteService', function(Curr){
+			.factory('NoteService', function(){
 				var notes = [
 					{title: 'title', text: 'Text'},
 					{title: 'title1', text: 'Text1'},
@@ -9,15 +9,12 @@
 					{title: 'title4', text: 'Text4'}
 				];
 
-				var current = {note: null};
-				var currentNote = null;
+				var emptyNote = false;
 
 				var service = {
 					getNotes		: getNotes,
-					saveCurrent		: saveNote,
-					createEmptyNote	: createEmpty,
-					getCurrentNote	: getCurrentNote,
-					current		: current
+					saveNote		: saveNote,
+					createEmptyNote	: createEmpty
 				};
 
 				return service;
@@ -26,29 +23,15 @@
 					return notes;
 				}
 
-				function createEmpty()
-				{
-					console.log('createEmpty')
-					console.log(currentNote);
-					service.currentNote = {
-						title	: '',
-						text	: ''
-					};
-					current.note = {
+				function createEmpty(){
+					return {
 						title	: '',
 						text	: ''
 					};
 				}
 
-				function getCurrentNote()
-				{
-					return currentNote;
-				}
-
-				function saveNote(currentNote)
-				{
-					notes.push(currentNote);
-					currentNote = false;
+				function saveNote(Note){
+					notes.push(Note);
 				}
 			});
 })()
