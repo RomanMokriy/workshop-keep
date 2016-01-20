@@ -1,0 +1,23 @@
+{
+  "name": "keep",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "roman.mokriy"
+  ],
+  "license": "BSD-2-Clause",
+  "moduleType": [],
+  "homepage": "https://github.com/RomanMokriy/workshop-keep.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.5",
+    "angular": "~1.4.8"
+  }
+}
