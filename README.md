@@ -1,11 +1,11 @@
 keep
 To set up the project
 
-run: composer install
-run: php bin/console doctrine:database:create
-run: php bin/console doctrine:migrations:migrate
-run: npm install
-run: npm install -g bower (if you don't have one)
-run: bower install
-run: npm install -g gulp (if you don't have one)
+run: composer install <br>
+run: php bin/console doctrine:database:create <br>
+run: php bin/console doctrine:migrations:migrate <br>
+run: npm install <br>
+run: npm install -g bower (if you don't have one) <br>
+run: bower install <br>
+run: npm install -g gulp (if you don't have one) <br>
 run: gulp
