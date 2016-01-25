@@ -20,8 +20,7 @@ class NoteController extends Controller
 	public function getAllAction(Request $request)
 	{		// replace this example code with whatever you need
 
-		$oNoteRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Note');
-		$oNotesCollection = $oNoteRepository->findAll();
+		$oNotesCollection = $this->get('app.repositories.note')->findAll();
 		$aNotes = $this->get('serializer')->normalize($oNotesCollection);
 		return new JsonResponse($aNotes);
 	}
@@ -32,15 +31,9 @@ class NoteController extends Controller
 	 */
 	public function createNoteAction(Request $request)
 	{
-		$content = $request->getContent();
-		if (!empty($content))
-		{
-			$params = json_decode($content, true);
-		}
-
 		$oNewNote = new Note();
-		$oNewNote->setTitle($params['title']);
-		$oNewNote->setContent($params['text']);
+		$oNewNote->setTitle($request->get('title'));
+		$oNewNote->setContent($request->get('text'));
 		$em =$this->getDoctrine()->getManager();
 		$em->persist($oNewNote);
 		$em->flush();
