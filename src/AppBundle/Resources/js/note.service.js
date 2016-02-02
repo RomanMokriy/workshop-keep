@@ -6,6 +6,7 @@
 				var service = {
 					getNotes		: getNotes,
 					saveNote		: saveNote,
+					deleteNote		: deleteNote,
 					createEmptyNote	: createEmpty
 				};
 
@@ -25,11 +26,23 @@
 				function createEmpty(){
 					return {
 						title	: '',
-						text	: ''
+						content	: ''
 					};
 				}
 
 				function saveNote(Note){
+					if(Note.id)
+					{
+						return $http.put('/note/' + Note.id, Note)
+							.then(function (response) {
+								return response.data
+							})
+							.catch(function (error){
+								alert(response);
+								return true;
+							});
+					}
+
 					return $http.post('/note', Note)
 							.then(function (response) {
 								return response.data
@@ -38,6 +51,20 @@
 								alert(response);
 								return true;
 							});
+				}
+
+				function deleteNote(Note){
+					if(Note.id)
+					{
+						return $http.delete('/note/' + Note.id)
+							.then(function (response) {
+								return response.data
+							})
+							.catch(function (error){
+								alert(response);
+								return true;
+							});
+					}
 				}
 			});
 })()

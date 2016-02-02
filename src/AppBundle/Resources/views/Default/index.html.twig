@@ -3,6 +3,7 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('bower_components/Materialize/dist/css/materialize.min.css') }}">
+	<link rel="stylesheet" href="{{ asset("css/app.css") }}">
 {% endblock %}
 
 {% block javascripts %}
@@ -18,7 +19,7 @@
 		<navigation></navigation>
 		<div class="row">
 			<div class="col s4 offset-s4">
-					<new-note allnotes=notes></new-note>
+					<note-new allnotes=notes></note-new>
 			</div>
 		</div>
 {#		{% verbatim %}

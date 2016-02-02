@@ -33,12 +33,43 @@ class NoteController extends Controller
 	{
 		$oNewNote = new Note();
 		$oNewNote->setTitle($request->get('title'));
-		$oNewNote->setContent($request->get('text'));
+		$oNewNote->setContent($request->get('content'));
 		$em =$this->getDoctrine()->getManager();
 		$em->persist($oNewNote);
 		$em->flush();
 
 		$aNote = $this->get('serializer')->normalize($oNewNote);
 		return new JsonResponse($aNote);
+	}
+
+	/**
+	 * @Route("/note/{id}", name="note_update_note")
+	 * @Method("PUT")
+	 */
+	public function editNoteAction(Request $request, Note $oNote)
+	{
+
+		$oNote->setTitle($request->get('title'));
+		$oNote->setContent($request->get('content'));
+		
+		$em =$this->getDoctrine()->getManager();
+		$em->persist($oNote);
+		$em->flush();
+
+		$aNote = $this->get('serializer')->normalize($oNote);
+		return new JsonResponse($aNote);
+	}
+
+	/**
+	 * @Route("/note/{id}", name="note_delete_note")
+	 * @Method("DELETE")
+	 */
+	public function DeleteNoteAction(Request $request, Note $oNote)
+	{
+		$em =$this->getDoctrine()->getManager();
+		$em->remove($oNote);
+		$em->flush();
+
+		return new JsonResponse([]);
 	}
 }
