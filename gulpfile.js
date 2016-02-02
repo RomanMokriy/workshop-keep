@@ -9,7 +9,6 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
 var appJsResouceFolder = './src/AppBundle/Resources/js/';
-var appCssResouceFolder = './src/AppBundle/Resources/css/';
 
 gulp.task('concat:js', function() {
         return gulp.src([
@@ -18,15 +17,6 @@ gulp.task('concat:js', function() {
         ])
                 .pipe(concat('app.js'))
                 .pipe(gulp.dest('./web/js/'))
-        ;
-});
-
-gulp.task('concat:css', function() {
-        return gulp.src([
-                appCssResouceFolder + '*.css'
-        ])
-                .pipe(concat('app.css'))
-                .pipe(gulp.dest('./web/css/'))
         ;
 });
 
@@ -44,4 +34,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['concat', 'watch']);
-gulp.task('concat', ['concat:js', 'concat:html', 'concat:css']);
+gulp.task('concat', ['concat:js', 'concat:html']);

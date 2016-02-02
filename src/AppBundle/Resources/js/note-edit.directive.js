@@ -51,28 +51,6 @@
 							}
 						});
 					}
-//					function saveNewNote()
-//					{
-//						if(vm.noteData && (vm.noteData.title.length >0 && vm.noteData.content.length >0))
-//						{
-//							if(typeof vm.onSaveCallback == 'function')
-//							{
-//
-//							}
-//							NoteService.saveNote(vm.noteData).then(function(savedNote){
-//								vm.allnotes.unshift(savedNote);
-//							});
-//						}
-//
-//						vm.noteData = null;
-//					}
-//
-//					function deleteNote(){
-//						NoteService.deleteNote(vm.noteData).then(function(savedNote){
-//							vm.allnotes.splice(vm.allnotes.indexOf(savedNote), 1);
-//						});
-//
-//					}
 				}
 
 			});
