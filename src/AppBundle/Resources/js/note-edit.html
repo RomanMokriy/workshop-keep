@@ -1,12 +1,16 @@
-<div class="input-field">
-		<input id="note-new-title" type="text" ng-model="NoteEditCtrl.noteData.title" />
-		<label for="note-new-title">Note title</label>
-</div>
-<div class="input-field">
-		<textarea id="note-new-text" class="materialize-textarea" ng-model="NoteEditCtrl.noteData.content"></textarea>
-		<label for="note-new-text">Note text</label>
-</div>
-<div class="card-action">
-		<a href="#" class="red-text" ng-if=NoteEditCtrl.noteData.id ng-click="NoteEditCtrl.deleteNote()">Delete note</a>
-		<a href="#" ng-click="NoteEditCtrl.saveNote()">Done</a>
-</div>
+<!--<div class="card">-->
+	<div class="card-content">
+		<div class="input-field">
+				<input id="note-new-title" type="text" ng-model="NoteEditCtrl.noteData.title" />
+				<label for="note-new-title">Note title</label>
+		</div>
+		<div class="input-field">
+				<textarea id="note-new-text" class="materialize-textarea" ng-model="NoteEditCtrl.noteData.content"></textarea>
+				<label for="note-new-text">Note text</label>
+		</div>
+	</div>
+	<div class="card-action">
+			<a href="#" class="red-text" ng-if=NoteEditCtrl.noteData.id ng-click="NoteEditCtrl.deleteNote()">Delete note</a>
+			<a href="#" ng-click="NoteEditCtrl.saveNote()">Done</a>
+	</div>
+<!--</div>-->

@@ -9,6 +9,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
 var appJsResouceFolder = './src/AppBundle/Resources/js/';
+var appCssResouceFolder = './src/AppBundle/Resources/css/';
 
 gulp.task('concat:js', function() {
         return gulp.src([
@@ -27,10 +28,18 @@ gulp.task('concat:html', function() {
         ;
 });
 
+gulp.task('concat:css', function() {
+        return gulp.src(appCssResouceFolder + '*.css')
+                .pipe(concat('app.css'))
+                .pipe(gulp.dest('./web/css/'))
+        ;
+});
+
 gulp.task('watch', function() {
         gulp.watch(appJsResouceFolder + '*.js', ['concat:js']);
         gulp.watch(appJsResouceFolder + '*.html', ['concat:html']);
+        gulp.watch(appCssResouceFolder + '*.css', ['concat:css']);
 });
 
 gulp.task('default', ['concat', 'watch']);
-gulp.task('concat', ['concat:js', 'concat:html']);
+gulp.task('concat', ['concat:js', 'concat:html', 'concat:css']);

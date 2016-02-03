@@ -2,7 +2,7 @@
 	<div class="card-content" ng-hide=NoteNewCtrl.emptyNote ng-click="NoteNewCtrl.createNewNote()" style="cursor: pointer;">
 			Add note
 	</div>
-	<div class="card-content" ng-if=NoteNewCtrl.emptyNote>
-		<note-edit note-data=NoteNewCtrl.emptyNote allnotes=NoteNewCtrl.allnotes  on-save="NoteNewCtrl.onSave"></note-edit>
-	</div>
+	<note-edit note-data=NoteNewCtrl.emptyNote class="card-content" ng-if=NoteNewCtrl.emptyNote on-save="NoteNewCtrl.onSave">
+		<!--<note-edit note-data=NoteNewCtrl.emptyNote allnotes=NoteNewCtrl.allnotes  on-save="NoteNewCtrl.onSave"></note-edit>-->
+	</note-edit>
 </div>

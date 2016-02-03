@@ -7,7 +7,6 @@
 					controllerAs	: "NoteEditCtrl",
 					scope	: {
 						noteData		: '=',
-//						allnotes		: '=',
 						onSaveCallback	: '=onSave',
 						onDeleteCallback: '=onDelete'
 					},
@@ -27,7 +26,6 @@
 							NoteService.saveNote(vm.noteData).then(function(savedNote)
 							{
 								vm.noteData = savedNote;
-								console.log(vm.onSaveCallback);
 
 								if (typeof vm.onSaveCallback === 'function')
 								{
