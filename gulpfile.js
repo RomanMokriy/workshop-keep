@@ -30,7 +30,6 @@ gulp.task('concat:html', function() {
 gulp.task('watch', function() {
         gulp.watch(appJsResouceFolder + '*.js', ['concat:js']);
         gulp.watch(appJsResouceFolder + '*.html', ['concat:html']);
-        gulp.watch(appCssResouceFolder + '*.сыы', ['concat:css']);
 });
 
 gulp.task('default', ['concat', 'watch']);
